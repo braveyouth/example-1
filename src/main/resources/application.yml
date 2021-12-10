@@ -8,8 +8,8 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://172.30.200.1:3308/activiti7?useUnicode=true&characterEncoding=utf-8&useSSL=false&nullCatalogMeansCurrent=true
-    username: root
-    password: Whjrjd@99!
+    username: ENC(loVtybOBzLBqGi5Jvg6iMA==)
+    password: ENC(Haq+RL2YGt46RA0C0azEDr+WM5N2IDoL)
     hikari:
       minimum-idle: 5
       maximum-pool-size: 20
@@ -34,3 +34,11 @@ spring:
     #校验流程文件，默认校验resources下的processes文件夹里的流程文件
     check-process-definitions: false
     process-definition-location-prefix: classpath:/processes/
+
+jasypt:
+  encryptor:
+#    algorithm: PBEWithMD5AndDES
+#    password: EbfYkitulv73I2p0mXI50JMXoaxZTKJ0
+    algorithm: ${jasypt_encryptor_algorithm}
+    password: ${jasypt_encryptor_password}
+    iv-generator-classname: org.jasypt.iv.NoIvGenerator
