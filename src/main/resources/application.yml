@@ -8,8 +8,10 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://172.30.200.1:3308/activiti7?useUnicode=true&characterEncoding=utf-8&useSSL=false&nullCatalogMeansCurrent=true
-    username: ENC(loVtybOBzLBqGi5Jvg6iMA==)
-    password: ENC(Haq+RL2YGt46RA0C0azEDr+WM5N2IDoL)
+#    username: ENC(loVtybOBzLBqGi5Jvg6iMA==)
+#    password: ENC(Haq+RL2YGt46RA0C0azEDr+WM5N2IDoL)
+    username: root
+    password: Whjrjd@99!
     hikari:
       minimum-idle: 5
       maximum-pool-size: 20
@@ -39,6 +41,6 @@ jasypt:
   encryptor:
 #    algorithm: PBEWithMD5AndDES
 #    password: EbfYkitulv73I2p0mXI50JMXoaxZTKJ0
-    algorithm: ${jasypt_encryptor_algorithm}
-    password: ${jasypt_encryptor_password}
+#    algorithm: ${jasypt_encryptor_algorithm}
+#    password: ${jasypt_encryptor_password}
     iv-generator-classname: org.jasypt.iv.NoIvGenerator
