@@ -72,13 +72,14 @@ public class ActivitiTest {
         //3.得到RuntimeService实例
         RuntimeService runtimeService = processEngine.getRuntimeService();
         //4.启动流程实例
-        ProcessInstance instance = runtimeService.startProcessInstanceByKey("myProcess");
+        ProcessInstance instance = runtimeService.startProcessInstanceByKey("myProcess_1");
         System.out.println("流程实例ID:"+instance.getId());
         System.out.println("流程定义ID:"+instance.getProcessDefinitionId());
     }
 
     /**
      * 查询用户的任务列表
+     * 流程启动后，各自任务的负责人就可以查询自己当前需要处理的任务，查询出来的任务都是该用户的待办任务
      */
     @Test
     public void taskQuery() {
@@ -88,8 +89,8 @@ public class ActivitiTest {
         TaskService taskService = processEngine.getTaskService();
         //4.根据流程定义的key,负责人assignee来实现当前用户的任务列表查询
         List<Task> list = taskService.createTaskQuery()
-                .processDefinitionKey("myProcess")
-                .taskAssignee("user2")
+                .processDefinitionKey("myProcess_1")
+                .taskAssignee("user1")
                 .list();
         if(list!=null && list.size()>0){
             for(Task task:list){
@@ -121,7 +122,7 @@ public class ActivitiTest {
     @Test
     public void completeTask(){
         //任务ID
-        String taskId = "5002";
+        String taskId = "7502";
         //2.创建ProcessEngine对象
         ProcessEngine processEngine = getProcessEngine();
         //3.得到TaskService实例
