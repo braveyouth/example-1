@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.4.5</version>
+        <version>2.1.13.RELEASE</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -19,14 +19,25 @@
         <java.version>8</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <activiti-dependencies.version>7.1.0-M6</activiti-dependencies.version>
+        <activiti-dependencies.version>7.1.0.M6</activiti-dependencies.version>
     </properties>
+
+<!--    <dependencyManagement>-->
+<!--        <dependencies>-->
+<!--            <dependency>-->
+<!--                <groupId>org.activiti.dependencies</groupId>-->
+<!--                <artifactId>activiti-dependencies</artifactId>-->
+<!--                <version>${activiti-dependencies.version}</version>-->
+<!--                <scope>import</scope>-->
+<!--                <type>pom</type>-->
+<!--            </dependency>-->
+<!--        </dependencies>-->
+<!--    </dependencyManagement>-->
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>2.4.5</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -45,7 +56,7 @@
         <dependency>
             <groupId>org.activiti</groupId>
             <artifactId>activiti-spring-boot-starter</artifactId>
-            <version>7.1.0.M6</version>
+            <version>${activiti-dependencies.version}</version>
         </dependency>
         <!-- mysql数据库 -->
         <dependency>
@@ -91,5 +102,17 @@
             </plugin>
         </plugins>
     </build>
+
+    <!-- 添加私服仓库地址，否则找不到包 -->
+<!--    <repositories>-->
+<!--        <repository>-->
+<!--            <id>alfresco</id>-->
+<!--            <name>Activiti Releases</name>-->
+<!--            <url>https://artifacts.alfresco.com/nexus/content/repositories/activiti-releases/</url>-->
+<!--            <releases>-->
+<!--                <enabled>true</enabled>-->
+<!--            </releases>-->
+<!--        </repository>-->
+<!--    </repositories>-->
 
 </project>
